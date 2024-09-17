@@ -4,7 +4,9 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/home/ding/PDA/Lab1"
+                "${workspaceFolder}/../inc",
+                "/home/dinghc/PDA/Lab1",
+                "/home/dinghc/PDA/Lab1/inc"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

@@ -12,8 +12,6 @@ using namespace std;
 struct coordinate {
     int x;
     int y;
-    //
-    coordinate(int in_x, int in_y):x(in_x),y(in_y){}
 
     // Overloading the == operator
     bool operator==(const coordinate& other) const {
@@ -25,13 +23,13 @@ struct coordinate {
 class Tile{
 public:
     //Constructor
-    Tile() : type(0), bottom_left(0,0), w(0), h(0) {}
-    Tile(bool in_type, coordinate in_coor, int in_w, int in_h) : type(0), bottom_left(0,0), w(0), h(0) {}
+    Tile();
+    Tile(bool in_type, coordinate in_coor, int in_w, int in_h);
     //data member
     bool type; //0:vacant, 1:block
     coordinate bottom_left;
     int w, h;
-    string top, down, left, right;
+    int top, down, left, right;
 
     //member function
     bool point_inside_tile(coordinate);

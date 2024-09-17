@@ -17,11 +17,11 @@ public:
     string bottom_right_tile;
 
     //member function
-    coordinate point_finding(int tile_name, coordinate target);
+    pair<bool, coordinate> point_finding(int tile_name, coordinate target);
     vector<int> neighbor_finding();
     void insert_tile(Tile);
 
-}
+};
 
 
 #endif
