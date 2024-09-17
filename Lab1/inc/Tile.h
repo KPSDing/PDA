@@ -24,7 +24,7 @@ class Tile{
 public:
     //Constructor
     Tile();
-    Tile(bool in_type, coordinate in_coor, int in_w, int in_h);
+    Tile(bool in_type, coordinate in_coor, int in_w, int in_h, int in_top, int in_down, int in_left, int in_right);
     //data member
     bool type; //0:vacant, 1:block
     coordinate bottom_left;
