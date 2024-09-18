@@ -1,0 +1,4 @@
+ignore .vscode/launch.json to avoid conflict
+.vscode
+.Lab1/.vscode
+.Lab1/*.o
