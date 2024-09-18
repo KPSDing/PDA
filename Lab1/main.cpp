@@ -22,9 +22,25 @@ int main(int argc, char *argv[]){
 
     cout << corner_stitching.tile.size() << endl;
 
+    // Test point_finding
     coordinate target = {15, 35};
     pair<int, coordinate> result = corner_stitching.point_finding(-1, target);
     cout << "The target in tile bottom left corner at coordinate (" << result.second.x << ", " << result.second.y << ")" << endl;
     
+    // Test neighbor_finding
+    vector <pair<int, int>> result_neighbor_vector;
+    for(int tile_name = -8; tile_name <= 5; tile_name++){
+        if(tile_name == 0){
+            continue;
+        }
+        pair<int, int> result_neighbor = corner_stitching.neighbor_finding(tile_name);
+        result_neighbor_vector.push_back(result_neighbor);
+        //cout << "Block "  << tile_name << " neighbor: "<< result_neighbor.first << " " << result_neighbor.second << endl;
+    }
+
+    for(int i = 0; i < result_neighbor_vector.size(); i++){
+        cout << "Block " << i << " neighbor: " << result_neighbor_vector[i].first << " " << result_neighbor_vector[i].second << endl;
+    }
+
     return 0;
 }

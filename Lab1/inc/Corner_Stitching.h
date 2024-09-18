@@ -18,7 +18,7 @@ public:
 
     //member function
     pair<bool, coordinate> point_finding(int tile_name, coordinate target);
-    vector<int> neighbor_finding();
+    pair<int, int>  neighbor_finding(int tile_name);
     void insert_tile(Tile);
 
 };
