@@ -1,8 +1,13 @@
+# 編譯器和編譯選項
 CXX = g++
 CXXFLAGS = -march=native -flto -funroll-loops -finline-functions -ffast-math -O3 -Iinc -std=c++11
+
+# 目標檔案和目錄
 SRC_DIR = src
 OBJ_DIR = obj
-TARGET = main
+TARGET = Lab1
+TARGET_1 = test_point_finding
+TARGET_2 = test_neighbor_finding
 
 # 源文件列表
 SOURCES = $(wildcard $(SRC_DIR)/*.cpp) main.cpp
@@ -28,4 +33,27 @@ $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 clean:
-	rm -rf $(OBJ_DIR) $(TARGET)
+	rm -rf $(OBJ_DIR) $(TARGET) $(TARGET_1) $(TARGET_2)
+
+# 單獨測試指令
+test_point_finding: $(OBJ_DIR)/test_point_finding.o $(OBJ_DIR)/tile.o $(OBJ_DIR)/corner_stitching.o
+	$(CXX) $(CXXFLAGS) $^ -o $(TARGET_1)
+	./$(TARGET_1)
+
+test_neighbor_finding: $(OBJ_DIR)/test_neighbor_finding.o $(OBJ_DIR)/tile.o $(OBJ_DIR)/corner_stitching.o
+	$(CXX) $(CXXFLAGS) $^ -o $(TARGET_2)
+	./$(TARGET_2)
+
+# 編譯測試檔案
+$(OBJ_DIR)/test_point_finding.o: test_point_finding.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -MMD -c $< -o $@
+
+$(OBJ_DIR)/test_neighbor_finding.o: test_neighbor_finding.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -MMD -c $< -o $@
+
+# 編譯其他必要的物件檔案
+$(OBJ_DIR)/tile.o: $(SRC_DIR)/Tile.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -MMD -c $< -o $@
+
+$(OBJ_DIR)/corner_stitching.o: $(SRC_DIR)/Corner_Stitching.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -MMD -c $< -o $@

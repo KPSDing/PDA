@@ -6,6 +6,7 @@
 
 #define VACANT 0
 #define BLOCK 1
+#define OUTOFBOUNDARY 0
 
 using namespace std;
 
@@ -33,6 +34,9 @@ public:
 
     //member function
     bool point_inside_tile(coordinate);
+    coordinate bottom_right();
+    coordinate top_left();
+    coordinate top_right();
 
 
 };

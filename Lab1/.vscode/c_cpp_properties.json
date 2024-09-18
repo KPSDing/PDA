@@ -5,14 +5,16 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/../inc",
-                "/home/dinghc/PDA/Lab1",
-                "/home/dinghc/PDA/Lab1/inc"
+                "/home/ding/PDA/Lab1",
+                "/home/ding/PDA/Lab1/inc",
+                "/usr/include",
+                "/usr/local/include"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/gcc",
+            "compilerPath": "/usr/bin/g++",
             "cStandard": "c11",
             "cppStandard": "c++11",
-            "intelliSenseMode": "gcc-x64"
+            "intelliSenseMode": "linux-gcc-x64"
         }
     ],
     "version": 4

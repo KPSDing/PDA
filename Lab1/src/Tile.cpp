@@ -27,3 +27,15 @@ bool Tile::point_inside_tile(coordinate target){
         return false;
     }
 }
+
+coordinate Tile::bottom_right(){
+    return {bottom_left.x + w, bottom_left.y};
+}
+
+coordinate Tile::top_left(){
+    return {bottom_left.x, bottom_left.y + h};
+}
+
+coordinate Tile::top_right(){
+    return {bottom_left.x + w, bottom_left.y + h};
+}
