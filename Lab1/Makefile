@@ -8,11 +8,14 @@ OBJ_DIR = obj
 TARGET = Lab1
 TARGET_1 = test_point_finding
 TARGET_2 = test_neighbor_finding
+TARGET_3 = test_edge_tile_finding
 
 # 源文件列表
 SOURCES = $(wildcard $(SRC_DIR)/*.cpp) main.cpp
 OBJECTS = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SOURCES:main.cpp=$(OBJ_DIR)/main.o))
 DEPS = $(OBJECTS:.o=.d)
+
+.PHONY: all clean test_point_finding test_neighbor_finding test_edge_tile_finding
 
 all: $(TARGET)
 
@@ -44,11 +47,18 @@ test_neighbor_finding: $(OBJ_DIR)/test_neighbor_finding.o $(OBJ_DIR)/tile.o $(OB
 	$(CXX) $(CXXFLAGS) $^ -o $(TARGET_2)
 	./$(TARGET_2)
 
+test_edge_tile_finding: $(OBJ_DIR)/test_edge_tile_finding.o $(OBJ_DIR)/tile.o $(OBJ_DIR)/corner_stitching.o
+	$(CXX) $(CXXFLAGS) $^ -o $(TARGET_3)
+	./$(TARGET_3)
+
 # 編譯測試檔案
 $(OBJ_DIR)/test_point_finding.o: test_point_finding.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) -MMD -c $< -o $@
 
 $(OBJ_DIR)/test_neighbor_finding.o: test_neighbor_finding.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -MMD -c $< -o $@
+
+$(OBJ_DIR)/test_edge_tile_finding.o: test_edge_tile_finding.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) -MMD -c $< -o $@
 
 # 編譯其他必要的物件檔案
@@ -57,3 +67,4 @@ $(OBJ_DIR)/tile.o: $(SRC_DIR)/Tile.cpp | $(OBJ_DIR)
 
 $(OBJ_DIR)/corner_stitching.o: $(SRC_DIR)/Corner_Stitching.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) -MMD -c $< -o $@
+

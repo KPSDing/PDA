@@ -4,8 +4,7 @@
 #include <iostream>
 #include <string>
 
-#define VACANT 0
-#define BLOCK 1
+enum TileType { VACANT = 0, BLOCK = 1 };
 #define OUTOFBOUNDARY 0
 
 using namespace std;
