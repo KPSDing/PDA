@@ -3,7 +3,7 @@ This repository contains assignments from my **Physical Design Automation (PDA)*
 
 ## Contents
 - **Labs**: Implementations and reports on layout algorithms.
-  - 📌 **Corner Stitching** – Efficient data structure for representing layout regions.
+  - 📌 **Corner Stitching** 
   - 📌 **Sequence Pair Based Floorplan** – A compact representation for floorplanning.
   - 📌 **Flip-Flop Legalizer** – Optimization techniques for placement legalization.
 
